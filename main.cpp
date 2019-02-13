@@ -18,7 +18,7 @@ void getOsName(void)
                 getline (osRelease,line);
                 unsigned first = line.find('"');
                 unsigned last = line.find_last_of('"');
-                cout << "OS: " << line.substr(first + 1,last-first - 1) << endl; // + 1 & - 1 in order to not include delimiter
+                cout << RED << "OS" << RESET << ": " << line.substr(first + 1,last-first - 1) << endl; // + 1 & - 1 in order to not include delimiter
                 osRelease.close();
         }
         else cout << "Unable to open file";
@@ -29,11 +29,11 @@ unsigned short getUsernameAtHostname(void)
 	unsigned short strLen(0);
         string usernameAtHostname;
 	string env_user(getenv("USER"));	
-	if(env_user == "root")
-		usernameAtHostname += string(BOLDRED);
-	else
-		usernameAtHostname += string(BLUE); 
-	usernameAtHostname += env_user + string(RESET);
+	if(env_user == "root") // if root display user in red
+		usernameAtHostname += BOLDRED;
+	else // else display in green
+		usernameAtHostname += GREEN;
+	usernameAtHostname += env_user + RESET;
 	strLen += env_user.length();
 
         string line;
@@ -41,7 +41,7 @@ unsigned short getUsernameAtHostname(void)
         if (hostname.is_open())
         {
                 getline (hostname,line);
-                usernameAtHostname += string("@") + line;
+                usernameAtHostname += string("@") + RED + line + RESET;
 		strLen += line.length() + 1;
                 hostname.close();
         }
@@ -59,7 +59,7 @@ void getKernel(void)
                 perror("uname");
                 exit(EXIT_FAILURE);
         }
-        cout << "Kernel: " << buffer.release << endl;
+        cout << RED << "Kernel" << RESET << ": " << buffer.release << endl;
 }
 
 void getUptime(void)
@@ -80,7 +80,7 @@ void getUptime(void)
 		days uptime_day(chrono::duration_cast<days>(uptime_hour));
 	        uptime_hour -= uptime_day;
 
-		cout << "Uptime: ";
+		cout << RED << "Uptime" << RESET << ": ";
 		if(uptime_day > days(0) && uptime_hour > chrono::hours(0) && uptime_min > chrono::minutes(0))
                 	cout << uptime_day.count() << "d, " << uptime_hour.count() << "h, " << uptime_min.count() << "m" << endl;
 		else if(uptime_hour > chrono::hours(0) && uptime_min > chrono::minutes(0))
@@ -122,14 +122,14 @@ void getShellInfos(void)
 	{
 		string zshVersion(GetStdoutFromCommand("/usr/bin/zsh --version"));
 		zshVersion = zshVersion.substr(0, zshVersion.find("\n", 0) + 1); // + 1 to also delete carriage return itself
-		cout << "Shell: " << zshVersion;
+		cout << RED << "Shell" << RESET << ": " << zshVersion;
 	}
 	else if(env_shell == "/bin/bash")
 	{
 		string bashVersion(GetStdoutFromCommand("/bin/bash --version"));
 		// bash --version output multiples lines and not "short" version
 		bashVersion = bashVersion.substr(0, bashVersion.find("\n", 0) + 1); // + 1 to also delete carriage return itself	
-		cout << "Shell: " << bashVersion;
+		cout << RED << "Shell" << RESET << ": " << bashVersion;
 	}
 
 }
