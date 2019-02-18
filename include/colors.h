@@ -1,3 +1,6 @@
+#ifndef COLORS_H
+#define COLORS_H
+
 #include <string>
 //the following are UBUNTU/LINUX, and MacOS ONLY terminal color codes.
 #define RESET   std::string("\033[0m")
@@ -17,3 +20,5 @@
 #define BOLDMAGENTA std::string("\033[1m\033[35m")      /* Bold Magenta */
 #define BOLDCYAN    std::string("\033[1m\033[36m")      /* Bold Cyan */
 #define BOLDWHITE   std::string("\033[1m\033[37m")      /* Bold White */
+
+#endif
