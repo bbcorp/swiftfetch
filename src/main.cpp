@@ -7,6 +7,7 @@
 #include "getUptime.h"
 #include "getLoadAvg.h"
 #include "getShellInfos.h"
+#include "getCpuInfos.h"
 
 using namespace std;
 
@@ -19,5 +20,6 @@ int main(int argc, char *argv[])
         getUptime();
 	getLoadAvg();
 	getShellInfos();
+	getCpuInfos();
         return EXIT_SUCCESS;
 }
