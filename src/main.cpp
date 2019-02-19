@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 	printUnderline(getUsernameAtHostname());
         getOsName();
         getKernel();
-	getTerminalInfos();
+	getCpuInfos();
         getUptime();
 	getLoadAvg();
 	getShellInfos();
-	getCpuInfos();
+	getTerminalInfos();
         return EXIT_SUCCESS;
 }
