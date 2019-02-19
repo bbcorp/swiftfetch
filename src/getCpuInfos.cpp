@@ -31,9 +31,6 @@ void getCpuInfos(void)
 				cpuFrequencyFound = true;
 			}
 			
-		/*unsigned first = line.find('"');
-                unsigned last = line.find_last_of('"');
-                cout << RED << "OS" << RESET << ": " << line.substr(first + 1,last-first - 1) << endl; // + 1 & - 1 in order to not include delimiter*/
 		}
 		cout << RED << "CPU" << RESET << ": ";
 		cout << cpuModelName << " (" << cpuCoresCount << ") @ " << setprecision(3) << cpuFrequency << "GHz" << endl;
