@@ -10,12 +10,14 @@
 #include "getCpuInfos.h"
 #include "getMemUsage.h"
 #include "getModelInfos.h"
+#include "printCols.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
 	printUnderline(getUsernameAtHostname());
+	printCols();
         getOsName();
         getKernel();
 	getCpuInfos();
