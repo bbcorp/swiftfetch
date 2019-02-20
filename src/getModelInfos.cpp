@@ -17,9 +17,6 @@ void getModelInfos(void)
         	if (modelInfosFile.is_open())
         	{
                 	getline (modelInfosFile,line);
-                /*unsigned first = line.find('"');
-                unsigned last = line.find_last_of('"');
-                cout << RED << "OS" << RESET << ": " << line.substr(first + 1,last-first - 1) << endl; // + 1 & - 1 in order to not include delimiter*/
 			cout << line << " ";
                 modelInfosFile.close();
         	}
