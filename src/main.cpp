@@ -9,6 +9,7 @@
 #include "getShellInfos.h"
 #include "getCpuInfos.h"
 #include "getMemUsage.h"
+#include "getModelInfos.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
         getUptime();
 	getLoadAvg();
 	getMemUsage();
+	getModelInfos();
 	getShellInfos();
 	getTerminalInfos();
         return EXIT_SUCCESS;
