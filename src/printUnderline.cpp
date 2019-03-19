@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void printUnderline(unsigned short len)
+string printUnderline(unsigned short len)
 {
-        cout << string(len, '-') << endl;
+        return string(len, '-') + "\n";
 }

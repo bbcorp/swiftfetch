@@ -1,11 +1,13 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "colors.h"
 
 using namespace std;
 
-void getOsName(void)
+string getOsName(void)
 {
+	stringstream streamOut;
         string line;
         ifstream osRelease ("/etc/os-release");
         if (osRelease.is_open())
@@ -13,8 +15,10 @@ void getOsName(void)
                 getline (osRelease,line);
                 unsigned first = line.find('"');
                 unsigned last = line.find_last_of('"');
-                cout << RED << "OS" << RESET << ": " << line.substr(first + 1,last-first - 1) << endl; // + 1 & - 1 in order to not include delimiter
+                streamOut << RED << "OS" << RESET << ": " << line.substr(first + 1,last-first - 1) << endl;; // + 1 & - 1 in order to not include delimiter
                 osRelease.close();
+		return streamOut.str();
         }
-        else cout << "Unable to open file";
+        else
+		return "Unable to open file";
 }

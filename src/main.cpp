@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <iostream>
+#include <string>
 #include "getUsernameAtHostname.h"
 #include "printUnderline.h" 
 #include "getOsName.h"
@@ -14,18 +16,24 @@
 
 using namespace std;
 
+void printAll(void)
+{
+	cout << printUnderline(getUsernameAtHostname());
+	cout << printCols();
+	cout << getOsName();
+	cout << getKernel();
+	cout << getCpuInfos();
+	cout << getUptime();
+	cout << getLoadAvg();
+	cout << getMemUsage();
+	cout << getModelInfos();
+	cout << getShellInfos();
+	cout << getTerminalInfos();
+}
+
+
 int main(int argc, char *argv[])
 {
-	printUnderline(getUsernameAtHostname());
-	printCols();
-        getOsName();
-        getKernel();
-	getCpuInfos();
-        getUptime();
-	getLoadAvg();
-	getMemUsage();
-	getModelInfos();
-	getShellInfos();
-	getTerminalInfos();
-        return EXIT_SUCCESS;
+        printAll();
+	return EXIT_SUCCESS;
 }

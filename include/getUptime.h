@@ -1,6 +1,6 @@
 #ifndef GET_UPTIME_H
 #define GET_UPTIME_H
 
-void getUptime(void);
+std::string getUptime(void);
 
 #endif

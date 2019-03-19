@@ -2,12 +2,14 @@
 #include <chrono>
 #include <ratio>
 #include <fstream>
+#include <sstream>
 #include "colors.h"
 
 using namespace std;
 
-void getUptime(void)
+string getUptime(void)
 {
+	stringstream streamOut;
         typedef chrono::duration<unsigned short, ratio<86400>> days;
 
         double uptime_seconds;
@@ -26,10 +28,11 @@ void getUptime(void)
 
                 cout << RED << "Uptime" << RESET << ": ";
                 if(uptime_day > days(0) && uptime_hour > chrono::hours(0) && uptime_min > chrono::minutes(0))
-                        cout << uptime_day.count() << "d, " << uptime_hour.count() << "h, " << uptime_min.count() << "m" << endl;
+                        streamOut << uptime_day.count() << "d, " << uptime_hour.count() << "h, " << uptime_min.count() << "m" << endl;
                 else if(uptime_hour > chrono::hours(0) && uptime_min > chrono::minutes(0))
-                        cout << uptime_hour.count() << "h, " << uptime_min.count() << "m" << endl;
+                        streamOut << uptime_hour.count() << "h, " << uptime_min.count() << "m" << endl;
                 else
-                        cout << uptime_min.count() << "m" << endl;
+                        streamOut << uptime_min.count() << "m" << endl;
+		return streamOut.str();
         }
 }

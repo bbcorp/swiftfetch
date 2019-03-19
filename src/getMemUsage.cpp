@@ -48,8 +48,9 @@ void getLongFromRegex(string line, string sregex, unsigned long &result)
 	}
 }
 
-void getMemUsage(void)
+string getMemUsage(void)
 {
+	stringstream streamOut;
 	string line;
 	unsigned long memUsed(0);
 	unsigned long memTotal(0);
@@ -61,10 +62,11 @@ void getMemUsage(void)
 			memUsed += sumMem(line);
 			getLongFromRegex(line, "^MemTotal: (.*)", memTotal);
 		}
-		cout << RED << "Memory" << RESET << ": ";
-		cout << memUsed / 1024 << "MiB / ";
-		cout << memTotal / 1024 << "MiB" << endl;
+		streamOut << RED << "Memory" << RESET << ": ";
+		streamOut << memUsed / 1024 << "MiB / ";
+		streamOut << memTotal / 1024 << "MiB" << endl;
 	}
 	else
-		cout << "Unable to open file" << endl;		
+		streamOut << "Unable to open file" << endl;
+	return streamOut.str();	
 }

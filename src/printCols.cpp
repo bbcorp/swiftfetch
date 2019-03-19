@@ -5,17 +5,19 @@
 
 using namespace std;
 
-void printCols(void)
+string printCols(void)
 {
+	string stringOut("");
 	list<string> colors = { BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE };
 	for (string color : colors)
 	{
-		cout << color;
+		stringOut += color;
 		for (short i = 0; i < 3; i++)
 		{
-			cout << "\u2588" ;
+			stringOut += "\u2588" ;
 		}
-		cout << RESET;
+		stringOut += RESET;
 	}
-	cout << endl << endl;
+	stringOut += "\n\n";
+	return stringOut;
 }

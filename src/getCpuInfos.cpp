@@ -1,12 +1,14 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <iomanip>
 #include "colors.h"
 
 using namespace std;
 
-void getCpuInfos(void)
+string getCpuInfos(void)
 {
+	stringstream streamOut;
         string line;
 	string cpuModelName;
 	unsigned short cpuCoresCount(0);
@@ -32,9 +34,10 @@ void getCpuInfos(void)
 			}
 			
 		}
-		cout << RED << "CPU" << RESET << ": ";
-		cout << cpuModelName << " (" << cpuCoresCount << ") @ " << setprecision(3) << cpuFrequency << "GHz" << endl;
+		streamOut << RED << "CPU" << RESET << ": ";
+		streamOut << cpuModelName << " (" << cpuCoresCount << ") @ " << setprecision(3) << cpuFrequency << "GHz" << endl;
                 cpuInfos.close();
+		return streamOut.str();
         }
         else
 		cout << "Unable to open file" << endl;
