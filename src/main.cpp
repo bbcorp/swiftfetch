@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include "getUsernameAtHostname.h"
 #include "printUnderline.h" 
@@ -13,22 +14,34 @@
 #include "getMemUsage.h"
 #include "getModelInfos.h"
 #include "printCols.h"
+#include "testDebian.h"
 
 using namespace std;
 
 void printAll(void)
 {
-	cout << printUnderline(getUsernameAtHostname());
-	cout << printCols();
-	cout << getOsName();
-	cout << getKernel();
-	cout << getCpuInfos();
-	cout << getUptime();
-	cout << getLoadAvg();
-	cout << getMemUsage();
-	cout << getModelInfos();
-	cout << getShellInfos();
-	cout << getTerminalInfos();
+	stringstream streamOut("");
+	streamOut << printUnderline(getUsernameAtHostname());
+	streamOut << printCols();
+	streamOut << getOsName();
+	streamOut << getKernel();
+	streamOut << getCpuInfos();
+	//streamOut << getUptime(); //FIXME uptime display broken
+	streamOut << getLoadAvg();
+	streamOut << getMemUsage();
+	streamOut << getModelInfos();
+	streamOut << getShellInfos();
+	streamOut << getTerminalInfos();
+	
+	stringstream streamAsciiRaw(testDebian());
+	string lineAscii;
+	string	lineStreamOut;
+
+	while (getline(streamAsciiRaw, lineAscii) && getline(streamOut, lineStreamOut))
+		cout << lineAscii << lineStreamOut << endl;
+
+	while (getline(streamAsciiRaw, lineAscii))
+		cout << lineAscii << endl;
 }
 
 

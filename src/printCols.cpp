@@ -18,6 +18,6 @@ string printCols(void)
 		}
 		stringOut += RESET;
 	}
-	stringOut += "\n\n";
+	stringOut += "\n";
 	return stringOut;
 }
