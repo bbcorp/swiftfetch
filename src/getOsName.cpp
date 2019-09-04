@@ -1,24 +1,72 @@
 #include <iostream>
-#include <fstream>
 #include <sstream>
+#include <fstream>
+#include <regex>
+#include <algorithm>
 #include "colors.h"
 
 using namespace std;
 
-string getOsName(void)
+string getOsFullName(void)
 {
+	string line;
 	stringstream streamOut;
+	streamOut << RED << "OS" << RESET << ": ";
+	ifstream osRelease ("/etc/os-release");
+	
+	if (osRelease.is_open())
+	{
+		unsigned int curLine = 0;
+		regex regexID("^PRETTY_NAME=(.*)");
+		while(getline(osRelease, line))
+		{
+			curLine++;
+			try {
+				smatch match;
+				if (regex_search(line, match, regexID) && match.size() > 1)
+				{
+					string result(match.str(1));
+					result.erase(std::remove(result.begin(),result.end(),'\"'),result.end());
+					streamOut << result << endl;
+					return streamOut.str();
+				}
+			} catch (std::regex_error& e) {
+				// Syntax error in the regular expression
+			}
+		}
+	}
+	streamOut << "Unkown OS" << endl;
+	return streamOut.str();
+}
+
+string getOsShortName(void)
+{
         string line;
+        stringstream streamOut;
+        streamOut << RED << "OS" << RESET << ": ";
         ifstream osRelease ("/etc/os-release");
+
         if (osRelease.is_open())
         {
-                getline (osRelease,line);
-                unsigned first = line.find('"');
-                unsigned last = line.find_last_of('"');
-                streamOut << RED << "OS" << RESET << ": " << line.substr(first + 1,last-first - 1) << endl;; // + 1 & - 1 in order to not include delimiter
-                osRelease.close();
-		return streamOut.str();
+                unsigned int curLine = 0;
+                regex regexID("^ID=(.*)");
+                while(getline(osRelease, line))
+                {
+                        curLine++;
+                        try {
+                                smatch match;
+                                if (regex_search(line, match, regexID) && match.size() > 1)
+                                {
+                                        string result(match.str(1));
+                                        result.erase(std::remove(result.begin(),result.end(),'\"'),result.end());
+					streamOut << result << endl;
+                                        return streamOut.str();
+                                }
+                        } catch (std::regex_error& e) {
+                                // Syntax error in the regular expression
+                        }
+                }
         }
-        else
-		return "Unable to open file";
+	streamOut << "Unkown OS" << endl;
+	return streamOut.str();
 }

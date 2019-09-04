@@ -23,7 +23,7 @@ void printAll(void)
 	stringstream streamOut("");
 	streamOut << printUnderline(getUsernameAtHostname());
 	streamOut << printCols();
-	streamOut << getOsName();
+	streamOut << getOsFullName();
 	streamOut << getKernel();
 	streamOut << getCpuInfos();
 	//streamOut << getUptime(); //FIXME uptime display broken
