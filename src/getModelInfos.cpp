@@ -24,7 +24,7 @@ string getModelInfos(void)
         	}
 	}
 	if (stringOut.length() > 0) // We did gather model info
-		stringOut = RED + "Model" + RESET + ": " + stringOut;
+		stringOut = RED + "Model" + RESET + ": " + stringOut + "\n";
 		 
 	//streamOut << endl;
 	return stringOut;
