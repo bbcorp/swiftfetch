@@ -16,6 +16,7 @@
 #include "printCols.h"
 #include "getAsciiLogo.h"
 #include "colors.h"
+#include "getPkgNumber.h"
 
 
 using namespace std;
@@ -32,6 +33,7 @@ void printAll(void)
 	streamOut << getCpuInfos();
 	streamOut << getUptime();
 	streamOut << getLoadAvg();
+	streamOut << getPkgNumber();
 	streamOut << getMemUsage();
 	streamOut << getModelInfos();
 	streamOut << getShellInfos();
@@ -45,6 +47,7 @@ void printAll(void)
 
 	while (getline(streamAsciiRaw, lineAscii))
 		cout << lineAscii << endl;
+
 	
 }
 
