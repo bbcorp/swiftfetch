@@ -15,33 +15,39 @@
 #include "getModelInfos.h"
 #include "printCols.h"
 #include "testDebian.h"
+#include "getAsciiLogo.h"
+#include "colors.h"
+#include <regex>
+
 
 using namespace std;
 
 void printAll(void)
 {
 	stringstream streamOut("");
-	streamOut << printUnderline(getUsernameAtHostname());
+	unsigned short userNameAtHostnameLength(0);
+	streamOut << getUsernameAtHostname(userNameAtHostnameLength);
+	streamOut << printUnderline(userNameAtHostnameLength);
 	streamOut << printCols();
 	streamOut << getOsFullName();
 	streamOut << getKernel();
 	streamOut << getCpuInfos();
-	//streamOut << getUptime(); //FIXME uptime display broken
+	streamOut << getUptime();
 	streamOut << getLoadAvg();
 	streamOut << getMemUsage();
 	streamOut << getModelInfos();
 	streamOut << getShellInfos();
 	streamOut << getTerminalInfos();
-	
-	stringstream streamAsciiRaw(testDebian());
+	stringstream streamAsciiRaw(getAsciiLogo(getOsShortName()));
 	string lineAscii;
 	string	lineStreamOut;
 
-	while (getline(streamAsciiRaw, lineAscii) && getline(streamOut, lineStreamOut))
+	while (getline(streamOut, lineStreamOut) && getline(streamAsciiRaw, lineAscii))
 		cout << lineAscii << lineStreamOut << endl;
 
 	while (getline(streamAsciiRaw, lineAscii))
 		cout << lineAscii << endl;
+	
 }
 
 

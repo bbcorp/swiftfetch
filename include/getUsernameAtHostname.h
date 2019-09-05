@@ -1,6 +1,7 @@
 #ifndef GET_USERNAME_AT_HOSTNAME_H
 #define GET_USERNAME_AT_HOSTNAME_H
+#include <string>
 
-unsigned short getUsernameAtHostname(void);
+std::string getUsernameAtHostname(unsigned short& strLen);
 
 #endif

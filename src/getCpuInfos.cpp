@@ -16,6 +16,7 @@ string getCpuInfos(void)
 	float cpuFrequency(0.0);
 	bool cpuFrequencyFound = false;
         ifstream cpuInfos("/proc/cpuinfo");
+	streamOut << RED << "CPU" << RESET << ": ";
         if (cpuInfos.is_open())
         {
                 while (getline(cpuInfos,line))
@@ -34,11 +35,10 @@ string getCpuInfos(void)
 			}
 			
 		}
-		streamOut << RED << "CPU" << RESET << ": ";
 		streamOut << cpuModelName << " (" << cpuCoresCount << ") @ " << setprecision(3) << cpuFrequency << "GHz" << endl;
                 cpuInfos.close();
 		return streamOut.str();
         }
-        else
-		cout << "Unable to open file" << endl;
+        streamOut << "unable to open file" << endl;
+	return streamOut.str();
 }

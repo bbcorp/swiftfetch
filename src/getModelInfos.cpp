@@ -23,7 +23,7 @@ string getModelInfos(void)
                 modelInfosFile.close();
         	}
         	else
-			streamOut << "Unable to open file";
+			streamOut << "Unable to open file ";
 	}
 	streamOut << endl;
 	return streamOut.str();

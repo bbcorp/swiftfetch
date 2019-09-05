@@ -16,11 +16,9 @@ string getOsFullName(void)
 	
 	if (osRelease.is_open())
 	{
-		unsigned int curLine = 0;
 		regex regexID("^PRETTY_NAME=(.*)");
 		while(getline(osRelease, line))
 		{
-			curLine++;
 			try {
 				smatch match;
 				if (regex_search(line, match, regexID) && match.size() > 1)
@@ -43,23 +41,21 @@ string getOsShortName(void)
 {
         string line;
         stringstream streamOut;
-        streamOut << RED << "OS" << RESET << ": ";
+        //streamOut << RED << "OS" << RESET << ": ";
         ifstream osRelease ("/etc/os-release");
 
         if (osRelease.is_open())
         {
-                unsigned int curLine = 0;
                 regex regexID("^ID=(.*)");
                 while(getline(osRelease, line))
                 {
-                        curLine++;
                         try {
                                 smatch match;
                                 if (regex_search(line, match, regexID) && match.size() > 1)
                                 {
                                         string result(match.str(1));
                                         result.erase(std::remove(result.begin(),result.end(),'\"'),result.end());
-					streamOut << result << endl;
+					streamOut << result ;
                                         return streamOut.str();
                                 }
                         } catch (std::regex_error& e) {
@@ -67,6 +63,6 @@ string getOsShortName(void)
                         }
                 }
         }
-	streamOut << "Unkown OS" << endl;
+	streamOut << "Unkown OS";
 	return streamOut.str();
 }

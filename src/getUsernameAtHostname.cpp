@@ -5,9 +5,9 @@
 
 using namespace std;
 
-unsigned short getUsernameAtHostname(void)
+string getUsernameAtHostname(unsigned short& strLen)
 {
-        unsigned short strLen(0);
+        strLen = 0;
         string usernameAtHostname;
         string env_user(getenv("USER"));
         if(env_user == "root") // if root display user in red
@@ -22,12 +22,11 @@ unsigned short getUsernameAtHostname(void)
         if (hostname.is_open())
         {
                 getline (hostname,line);
-                usernameAtHostname += string("@") + RED + line + RESET;
+                usernameAtHostname += string("@") + RED + line + RESET + "\n";
                 strLen += line.length() + 1;
                 hostname.close();
         }
-        else cout << "Unable to open file";
-        cout << usernameAtHostname << endl;
+        else return "Unable to open file\n";
 
-        return strLen;
+        return usernameAtHostname;
 }

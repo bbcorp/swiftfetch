@@ -11,8 +11,9 @@ string getUptime(void)
 {
 	stringstream streamOut;
         typedef chrono::duration<unsigned short, ratio<86400>> days;
-
         double uptime_seconds;
+
+	streamOut << RED << "Uptime" << RESET << ": ";
         if (ifstream("/proc/uptime", ios::in) >> uptime_seconds)
         {
                 chrono::seconds uptime_sec(static_cast<unsigned long long>(uptime_seconds));
@@ -26,7 +27,6 @@ string getUptime(void)
                 days uptime_day(chrono::duration_cast<days>(uptime_hour));
                 uptime_hour -= uptime_day;
 
-                cout << RED << "Uptime" << RESET << ": ";
                 if(uptime_day > days(0) && uptime_hour > chrono::hours(0) && uptime_min > chrono::minutes(0))
                         streamOut << uptime_day.count() << "d, " << uptime_hour.count() << "h, " << uptime_min.count() << "m" << endl;
                 else if(uptime_hour > chrono::hours(0) && uptime_min > chrono::minutes(0))
@@ -35,4 +35,7 @@ string getUptime(void)
                         streamOut << uptime_min.count() << "m" << endl;
 		return streamOut.str();
         }
+	// Uptime not found
+	streamOut << "uptime not found" << endl;
+	return streamOut.str();
 }
