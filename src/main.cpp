@@ -14,7 +14,6 @@
 #include "getMemUsage.h"
 #include "getModelInfos.h"
 #include "printCols.h"
-#include "testDebian.h"
 #include "getAsciiLogo.h"
 #include "colors.h"
 #include <regex>
