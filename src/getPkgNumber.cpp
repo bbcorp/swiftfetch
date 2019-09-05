@@ -12,12 +12,14 @@
 #include <algorithm>
 #include "colors.h"
 
-std::string exec(const char* cmd) {
-    std::array<char, 128> buffer;
-    std::string result;
-    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+using namespace std;
+
+string exec(const char* cmd) {
+    array<char, 128> buffer;
+    string result;
+    unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
     if (!pipe) {
-        throw std::runtime_error("popen() failed!");
+        throw runtime_error("popen() failed!");
     }
     while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
         result += buffer.data();
@@ -26,7 +28,6 @@ std::string exec(const char* cmd) {
 }
 
 
-using namespace std;
 
 
 
