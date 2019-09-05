@@ -16,7 +16,6 @@
 #include "printCols.h"
 #include "getAsciiLogo.h"
 #include "colors.h"
-#include <regex>
 
 
 using namespace std;
