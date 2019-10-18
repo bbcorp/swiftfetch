@@ -6,7 +6,7 @@ using namespace std;
 string getStdoutFromShell(string cmd)
 {
 
-        string data;
+        string data("");
         FILE * stream;
         const int max_buffer = 256;
         char buffer[max_buffer];

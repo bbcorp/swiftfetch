@@ -18,8 +18,8 @@ string fillWithSpaces(string asciiLogo, unsigned short totalLength)
 	deleteAnsiEscapeColor(asciiLogo);
 	stringstream streamAsciiRaw(asciiLogo);
 	stringstream streamOut;
-	string lineAscii;
-	string lineAsciiWithColors;
+	string lineAscii("");
+	string lineAsciiWithColors("");
 	unsigned short lineAsciiSize(0);
 	while (getline(streamAsciiRaw, lineAscii) && getline(streamAsciiWithColors, lineAsciiWithColors))
 	{
@@ -37,7 +37,7 @@ string fillWithSpaces(string asciiLogo, unsigned short totalLength)
 
 string getAsciiLogo(string osName)
 {
-	string asciiLogoWithColors;
+	string asciiLogoWithColors("");;
 	unsigned short totalLength(0);
 
 	if (osName == "debian")

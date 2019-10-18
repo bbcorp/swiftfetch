@@ -9,8 +9,8 @@ using namespace std;
 string getCpuInfos(void)
 {
 	stringstream streamOut;
-        string line;
-	string cpuModelName;
+        string line("");
+	string cpuModelName("");
 	unsigned short cpuCoresCount(0);
 	bool cpuModelNameFound = false;
 	float cpuFrequency(0.0);

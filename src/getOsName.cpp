@@ -9,7 +9,7 @@ using namespace std;
 
 string getOsFullName(void)
 {
-	string line;
+	string line("");
 	stringstream streamOut;
 	streamOut << RED << "OS" << RESET << ": ";
 	ifstream osRelease ("/etc/os-release");
@@ -39,7 +39,7 @@ string getOsFullName(void)
 
 string getOsShortName(void)
 {
-        string line;
+        string line("");
         stringstream streamOut;
         //streamOut << RED << "OS" << RESET << ": ";
         ifstream osRelease ("/etc/os-release");

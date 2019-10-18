@@ -51,7 +51,7 @@ void getLongFromRegex(string line, string sregex, unsigned long &result)
 string getMemUsage(void)
 {
 	stringstream streamOut;
-	string line;
+	string line("");
 	unsigned long memUsed(0);
 	unsigned long memTotal(0);
 	ifstream memInfos("/proc/meminfo");

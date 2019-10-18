@@ -8,7 +8,7 @@ using namespace std;
 string getUsernameAtHostname(unsigned short& strLen)
 {
         strLen = 0;
-        string usernameAtHostname;
+        string usernameAtHostname("");
         string env_user(getenv("USER"));
         if(env_user == "root") // if root display user in red
                 usernameAtHostname += BOLDRED;
@@ -17,7 +17,7 @@ string getUsernameAtHostname(unsigned short& strLen)
         usernameAtHostname += env_user + RESET;
         strLen += env_user.length();
 
-        string line;
+        string line("");
         ifstream hostname ("/etc/hostname");
         if (hostname.is_open())
         {

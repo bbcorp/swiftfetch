@@ -16,7 +16,7 @@ using namespace std;
 
 string exec(const char* cmd) {
     array<char, 128> buffer;
-    string result;
+    string result("");
     unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
     if (!pipe) {
         throw runtime_error("popen() failed!");
@@ -34,7 +34,7 @@ string exec(const char* cmd) {
 string getPkgNumber(void)
 {
 	stringstream streamOut;
-	string numberPackages;
+	string numberPackages("");
 	ifstream dpkg("/usr/bin/dpkg-query");
 	if (dpkg.good())
 	{
@@ -44,26 +44,4 @@ string getPkgNumber(void)
 		streamOut << numberPackages << " (dpkg)" << endl;
 	}
 	return streamOut.str();
-/*        strLen = 0;
-        string usernameAtHostname;
-        string env_user(getenv("USER"));
-        if(env_user == "root") // if root display user in red
-                usernameAtHostname += BOLDRED;
-        else // else display in green
-                usernameAtHostname += GREEN;
-        usernameAtHostname += env_user + RESET;
-        strLen += env_user.length();
-
-        string line;
-        ifstream hostname ("/etc/hostname");
-        if (hostname.is_open())
-        {
-                getline (hostname,line);
-                usernameAtHostname += string("@") + RED + line + RESET + "\n";
-                strLen += line.length() + 1;
-                hostname.close();
-        }
-        else return "Unable to open file\n";
-
-        return usernameAtHostname;*/
 }

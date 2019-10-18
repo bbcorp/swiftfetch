@@ -39,8 +39,8 @@ void printAll(void)
 	streamOut << getShellInfos();
 	streamOut << getTerminalInfos();
 	stringstream streamAsciiRaw(getAsciiLogo(getOsShortName()));
-	string lineAscii;
-	string	lineStreamOut;
+	string lineAscii("");
+	string	lineStreamOut("");
 
 	while (getline(streamOut, lineStreamOut) && getline(streamAsciiRaw, lineAscii))
 		cout << lineAscii << lineStreamOut << endl;

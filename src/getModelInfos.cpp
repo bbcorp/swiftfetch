@@ -9,10 +9,10 @@ using namespace std;
 
 string getModelInfos(void)
 {
-	string stringOut;
+	string stringOut("");
 	//streamOut << RED << "Model" << RESET << ": ";
 	list<string> modelInfosFilePaths = {"/sys/devices/virtual/dmi/id/sys_vendor", "/sys/devices/virtual/dmi/id/product_name", "/sys/devices/virtual/dmi/id/product_version"};
-        string line;
+        string line("");
 	for (string filePath : modelInfosFilePaths)
 	{
         	ifstream modelInfosFile(filePath);
