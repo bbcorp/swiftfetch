@@ -13,9 +13,11 @@ build:ubuntu:
 build:debian:
   image: debian:latest
   script:
+    - ls -l .
     - ./Release/swiftfetch
 
 build:alpine:
   image: alpine:latest
   script:
+    - ls -l .
     - ./Release/swiftfetch
