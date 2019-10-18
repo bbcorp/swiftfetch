@@ -45,7 +45,7 @@ include_directories(include)
 
 file(GLOB SRCS src/*.cpp)
 
-add_executable(Client ${SRCS})
+add_executable(switchfetch ${SRCS})
 
 ## No library needed for now
 #if(UNIX)
