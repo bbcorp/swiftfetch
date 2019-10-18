@@ -1,4 +1,5 @@
 before_script:
+   - apt update
    - apt install build-essential cmake -qq -y
    - cmake .
    - make
