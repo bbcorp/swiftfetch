@@ -9,19 +9,19 @@ before_script:
 
 
 build:ubuntu:
-  image: ubuntu:latest
+  image: gppcmake/ubuntu:latest
   stage: build
   script:
     - ./Release/swiftfetch
 
 build:debian:
-  image: debian:latest
+  image: gppcmake/debian:latest
   stage: build
   script:
     - ./Release/swiftfetch
 
 build:alpine:
-  image: alpine:latest
+  image: gppcmake/alpine:latest
   stage: build
   script:
     - ./Release/swiftfetch
