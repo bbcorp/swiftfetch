@@ -45,7 +45,7 @@ include_directories(include)
 
 file(GLOB SRCS src/*.cpp)
 
-add_executable(switchfetch ${SRCS})
+add_executable(swiftfetch ${SRCS})
 
 ## No library needed for now
 #if(UNIX)
