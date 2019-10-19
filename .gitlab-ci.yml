@@ -23,3 +23,9 @@ build:alpine:
   stage: build
   script:
     - ./Release/swiftfetch
+
+build:archlinux:
+  image: gppcmake/archlinux:9.2
+  stage: build
+  script:
+    - ./Release/swiftfetch
