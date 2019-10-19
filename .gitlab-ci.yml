@@ -1,3 +1,6 @@
+stages:
+   - build
+
 before_script:
    - apt update
    - apt install build-essential cmake -qq -y
@@ -7,17 +10,18 @@ before_script:
 
 build:ubuntu:
   image: ubuntu:latest
+  stage: build
   script:
     - ./Release/swiftfetch
 
 build:debian:
   image: debian:latest
+  stage: build
   script:
-    - ls -l .
     - ./Release/swiftfetch
 
 build:alpine:
   image: alpine:latest
+  stage: build
   script:
-    - ls -l .
     - ./Release/swiftfetch
