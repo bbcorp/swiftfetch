@@ -5,6 +5,9 @@ before_script:
    - cmake .
    - make
 
+build:
+  tags:
+    - docker
 
 build:ubuntu:
   image: gppcmake/ubuntu:7.4
