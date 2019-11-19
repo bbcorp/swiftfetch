@@ -87,5 +87,56 @@ string getAsciiLogo(string osName)
 + RED + R"***(            .-/+oossssoo+/-.)***" + RESET;
 	totalLength = 45;
 }
+	else if (osName == "arch")
+{
+	asciiLogoWithColors = CYAN + R"***(                  -`)***" + RESET + "\n"
++ CYAN + R"***(                 .o+`)***" + RESET + "\n"
++ CYAN + R"***(                `ooo/)***" + RESET + "\n"
++ CYAN + R"***(               `+oooo:)***" + RESET + "\n"
++ CYAN + R"***(              `+oooooo:)***" + RESET + "\n"
++ CYAN + R"***(              -+oooooo+:)***" + RESET + "\n"
++ CYAN + R"***(            `/:-:++oooo+:)***" + RESET + "\n"
++ CYAN + R"***(           `/++++/+++++++:)***" + RESET + "\n"
++ CYAN + R"***(          `/++++++++++++++:)***" + RESET + "\n"
++ CYAN + R"***(         `/+++ooooooooooooo/`)***" + RESET + "\n"
++ CYAN + R"***(        ./ooosssso++osssssso+`)***" + RESET + "\n"
++ CYAN + R"***(       .oossssso-````/ossssss+`)***" + RESET + "\n"
++ CYAN + R"***(      -osssssso.      :ssssssso.)***" + RESET + "\n"
++ CYAN + R"***(     :osssssss/        osssso+++.)***" + RESET + "\n"
++ CYAN + R"***(    /ossssssss/        +ssssooo/-)***" + RESET + "\n"
++ CYAN + R"***(  `/ossssso+/:-        -:/+osssso+-)***" + RESET + "\n"
++ CYAN + R"***( `+sso+:-`                 `.-/+oso:)***" + RESET + "\n"
++ CYAN + R"***(`++:.                           `-/+/)***" + RESET + "\n"
++ CYAN + R"***(.`                                 `/)***" + RESET;
+	totalLength = 38;
+
+}
+	else if (osName == "alpine")
+{
+	asciiLogoWithColors = BLUE + R"***(       .hddddddddddddddddddddddh.    )***" + RESET + "\n"
++ BLUE + R"***(      :dddddddddddddddddddddddddd:)***" + RESET + "\n"
++ BLUE + R"***(     /dddddddddddddddddddddddddddd/)***" + RESET + "\n"
++ BLUE + R"***(    +dddddddddddddddddddddddddddddd+)***" + RESET + "\n"
++ BLUE + R"***(  `sdddddddddddddddddddddddddddddddds`)***" + RESET + "\n"
++ BLUE + R"***( `ydddddddddddd++hdddddddddddddddddddy`)***" + RESET + "\n"
++ BLUE + R"***(.hddddddddddd+`  `+ddddh:-sdddddddddddh.)***" + RESET + "\n"
++ BLUE + R"***(hdddddddddd+`      `+y:    .sddddddddddh)***" + RESET + "\n"
++ BLUE + R"***(ddddddddh+`   `//`   `.`     -sddddddddd)***" + RESET + "\n"
++ BLUE + R"***(ddddddh+`   `/hddh/`   `:s-    -sddddddd)***" + RESET + "\n"
++ BLUE + R"***(ddddh+`   `/+/dddddh/`   `+s-    -sddddd)***" + RESET + "\n"
++ BLUE + R"***(ddd+`   `/o` :dddddddh/`   `oy-    .yddd)***" + RESET + "\n"
++ BLUE + R"***(hdddyo+ohddyosdddddddddho+oydddy++ohdddh)***" + RESET + "\n"
++ BLUE + R"***(.hddddddddddddddddddddddddddddddddddddh.)***" + RESET + "\n"
++ BLUE + R"***( `yddddddddddddddddddddddddddddddddddy`)***" + RESET + "\n"
++ BLUE + R"***(  `sdddddddddddddddddddddddddddddddds`)***" + RESET + "\n"
++ BLUE + R"***(    +dddddddddddddddddddddddddddddd+)***" + RESET + "\n"
++ BLUE + R"***(     /dddddddddddddddddddddddddddd/)***" + RESET + "\n"
++ BLUE + R"***(      :dddddddddddddddddddddddddd:)***" + RESET + "\n"
++ BLUE + R"***(       .hddddddddddddddddddddddh.)***" + RESET;
+	totalLength = 40;
+
+}
+
+
 	return fillWithSpaces(asciiLogoWithColors, totalLength);
 }
