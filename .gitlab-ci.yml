@@ -7,24 +7,32 @@ before_script:
 
 
 build:ubuntu:
+  tags:
+    - docker
   image: gppcmake/ubuntu:7.4
   stage: build
   script:
     - ./Release/swiftfetch
 
 build:debian:
+  tags:
+    - docker
   image: gppcmake/debian:8.3
   stage: build
   script:
     - ./Release/swiftfetch
 
 build:alpine:
+  tags:
+    - docker
   image: gppcmake/alpine:8.3
   stage: build
   script:
     - ./Release/swiftfetch
 
 build:archlinux:
+  tags:
+    - docker
   image: gppcmake/archlinux:9.2
   stage: build
   script:
