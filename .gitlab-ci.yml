@@ -5,7 +5,6 @@ before_script:
    - cmake .
    - make
 
-
 build:ubuntu:
   tags:
     - docker
@@ -32,7 +31,6 @@ build:debian:
       - src/*.cpp
       - include/*.h
 
-
 build:alpine:
   tags:
     - docker
@@ -45,7 +43,6 @@ build:alpine:
       - CMakeLists.txt
       - src/*.cpp
       - include/*.h
-
 
 build:archlinux:
   tags:
