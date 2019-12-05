@@ -41,7 +41,7 @@ string getAsciiLogo(string osName)
 	unsigned short totalLength(0);
 
 	if (osName == "debian")
-{
+	{
 		asciiLogoWithColors = WHITE + R"***(       _,met$$$$$gg.
     ,g$$$$$$$$$$$$$$$P.
   ,g$$P"     """Y$$.".
@@ -61,10 +61,10 @@ string getAsciiLogo(string osName)
               `"""
 )***" + RESET;
 
-	totalLength = 35;
-}			
+		totalLength = 35;
+	}			
 	else if (osName == "ubuntu")
-{
+	{
 		asciiLogoWithColors = RED + R"***(            .-/+oossssoo+/-.)***" + RESET + "\n"
 + RED + R"***(        `:+ssssssssssssssssss+:`)***" + RESET + "\n"
 + RED + R"***(      -+ssssssssssssssssssyyssss+-)***" + RESET + "\n"
@@ -85,11 +85,11 @@ string getAsciiLogo(string osName)
 + RED + R"***(      -+sssssssssssssssss)***" + WHITE + R"***(yyy)***" + RED + R"***(ssss+-)***" + RESET + "\n"
 + RED + R"***(        `:+ssssssssssssssssss+:`)***" + RESET + "\n"
 + RED + R"***(            .-/+oossssoo+/-.)***" + RESET;
-	totalLength = 45;
-}
+		totalLength = 45;
+	}
 	else if (osName == "arch")
-{
-	asciiLogoWithColors = CYAN + R"***(                  -`)***" + RESET + "\n"
+	{
+		asciiLogoWithColors = CYAN + R"***(                  -`)***" + RESET + "\n"
 + CYAN + R"***(                 .o+`)***" + RESET + "\n"
 + CYAN + R"***(                `ooo/)***" + RESET + "\n"
 + CYAN + R"***(               `+oooo:)***" + RESET + "\n"
@@ -108,12 +108,12 @@ string getAsciiLogo(string osName)
 + CYAN + R"***( `+sso+:-`                 `.-/+oso:)***" + RESET + "\n"
 + CYAN + R"***(`++:.                           `-/+/)***" + RESET + "\n"
 + CYAN + R"***(.`                                 `/)***" + RESET;
-	totalLength = 38;
+		totalLength = 38;
+	}
 
-}
 	else if (osName == "alpine")
-{
-	asciiLogoWithColors = BLUE + R"***(       .hddddddddddddddddddddddh.    )***" + RESET + "\n"
+	{
+		asciiLogoWithColors = BLUE + R"***(       .hddddddddddddddddddddddh.    )***" + RESET + "\n"
 + BLUE + R"***(      :dddddddddddddddddddddddddd:)***" + RESET + "\n"
 + BLUE + R"***(     /dddddddddddddddddddddddddddd/)***" + RESET + "\n"
 + BLUE + R"***(    +dddddddddddddddddddddddddddddd+)***" + RESET + "\n"
@@ -135,7 +135,24 @@ string getAsciiLogo(string osName)
 + BLUE + R"***(       .hddddddddddddddddddddddh.)***" + RESET;
 	totalLength = 40;
 
-}
+	}
+
+	else
+	{
+		asciiLogoWithColors = WHITE + R"***(     _)***" + RESET + "\n"
++ WHITE + R"***(    / /\)***" + RESET + "\n"
++ WHITE + R"***(   / /  \)***" + RESET + "\n"
++ WHITE + R"***(  / / /\ \___)***" + RESET + "\n"
++ WHITE + R"***(/ / /\ \__  /\)***" + RESET + "\n"
++ WHITE + R"***(/_/ /  \__/ / /)***" + RESET + "\n"
++ WHITE + R"***(\ \ \    /_/ /)***" + RESET + "\n"
++ WHITE + R"***( \_\/    \ \ \)***" + RESET + "\n"
++ WHITE + R"***(          \_\/_)***" + RESET + "\n"
++ WHITE + R"***(            /_/\)***" + RESET + "\n"
++ WHITE + R"***(            \_\/)***" + RESET;
+		totalLength = 20;
+
+	}
 
 
 	return fillWithSpaces(asciiLogoWithColors, totalLength);
