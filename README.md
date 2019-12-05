@@ -9,4 +9,3 @@ As you may have guessed, my inspiration is neofetch.
 Part of code is from neofetch itself, like colors or ASCII art for example.
 
 neofetch source code can be found here : https://github.com/dylanaraps/neofetch
-
