@@ -10,6 +10,13 @@ before_script:
    - cmake .
    - make
 
+build:
+  only:
+    changes:
+      - CMakeLists.txt
+      - src/*.cpp
+      - include/*.h
+
 
 build:ubuntu:
   tags:
