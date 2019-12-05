@@ -26,6 +26,12 @@ build:debian:
   stage: build
   script:
     - ./Release/swiftfetch
+  only:
+    changes:
+      - CMakeLists.txt
+      - src/*.cpp
+      - include/*.h
+
 
 build:alpine:
   tags:
@@ -34,6 +40,12 @@ build:alpine:
   stage: build
   script:
     - ./Release/swiftfetch
+  only:
+    changes:
+      - CMakeLists.txt
+      - src/*.cpp
+      - include/*.h
+
 
 build:archlinux:
   tags:
@@ -42,3 +54,8 @@ build:archlinux:
   stage: build
   script:
     - ./Release/swiftfetch
+  only:
+    changes:
+      - CMakeLists.txt
+      - src/*.cpp
+      - include/*.h
